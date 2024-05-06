@@ -60,4 +60,60 @@ This project illustrates fundamental concepts of Java networking and multi-threa
 ---
 
 
+# Proiect Java cu Sockets și Threads
+
+## Prezentare generală
+
+Acest proiect Java demonstrează utilizarea socket-urilor și a thread-urilor pentru a crea o aplicație simplă client-server. Include componente GUI pentru interacțiunea cu utilizatorul și comunicație în rețea pentru transmiterea obiectelor prin socket. Acest proiect oferă un exemplu practic de serializare a obiectelor Java, gestionare a thread-urilor și creare de formulare GUI utilizând bibliotecile AWT și Swing.
+
+## Caracteristici principale
+
+- **Comunicare Client-Server:** Proiectul implementează o arhitectură client-server de bază în care clientul trimite un obiect serializat (un formular) serverului prin socket-uri.
+- **Gestionarea Thread-urilor:** Serverul gestionează fiecare conexiune client într-un thread separat, permițând mai multor clienți să se conecteze și să interacționeze cu serverul simultan.
+- **Interfață Grafică Utilizator:** Atât clientul, cât și serverul dispun de interfețe grafice realizate folosind bibliotecile AWT și Swing ale Java. Interfața grafică a clientului permite utilizatorilor să introducă detaliile lor, care sunt apoi trimise și afișate de server.
+
+## Descrierea Modulelor
+
+### ClientConnection (Partea Client)
+
+- Stabilește o conexiune socket cu serverul.
+- Trimite un obiect `FormDesign` serverului după ce formularul este completat și trimis.
+- Folosește thread-uri pentru a aștepta trimiterea formularului înainte de a proceda la trimiterea obiectului.
+
+### FormDesign
+
+- O clasă GUI care creează un formular pentru introducerea datelor utilizatorului, inclusiv câmpuri pentru nume, vârstă și gen.
+- Utilizează Java AWT pentru layout și componente.
+- Integrează un ascultător de acțiuni pentru a gestiona trimiterea formularului.
+
+### FormHandler
+
+- Implementează `ActionListener` și gestionează logica de procesare a datelor din formular.
+- Verifică dacă toate câmpurile sunt completate și validează că intrarea pentru vârstă este o valoare numerică.
+
+### ServerConnection (Partea Server)
+
+- Un thread care gestionează conexiunea pentru fiecare client.
+- Citește obiectul `FormDesign` trimis de client, îl afișează și menține GUI-ul serverului actualizat până când clientul se deconectează.
+
+### ServerDetails
+
+- Configurează socketul serverului și ascultă conexiunile clientilor în așteptare.
+- Instanțiază `ServerConnection` pentru fiecare client, asigurându-se că fiecare client este gestionat în propriul său thread.
+
+### ServerDisplay
+
+- Afișează un GUI de server folosind componente Swing.
+- Afișează informațiile primite de la clienți într-un format structurat pe GUI.
+
+## Cum să Utilizați
+
+1. **Pornește Serverul:** Rulează clasa `ServerDetails` pentru a porni serverul. Acesta ascultă conexiuni de la clienți pe portul 5555.
+2. **Rulează Clientul:** Execută clasa `ClientConnection`. Acesta deschide o GUI pentru introducerea detaliilor utilizatorului.
+3. **Introduceți Datele și Trimiteți:** Completați detaliile în GUI-ul clientului și apăsați butonul de trimitere pentru a trimite datele la server.
+4. **Vizualizați Rezultatele pe Server:** Verificați GUI-ul serverului pentru a vedea datele primite de la client afișate.
+
+## Concluzie
+
+Acest proiect ilustrează conceptele fundamentale de rețelistică și multi-threading în Java alături de dezvoltarea GUI. Este o bază excelentă pentru înțelegerea interacțiunilor client-server, securitatea thread-urilor și gestionarea GUI în Java.
 
