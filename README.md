@@ -1,4 +1,4 @@
-# Java Sockets and Threads Project README
+# Java Sockets and Threads Project
 
 ## Overview
 
