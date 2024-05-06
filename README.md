@@ -54,3 +54,10 @@ This Java project demonstrates the use of sockets and threads to create a simple
 ## Conclusion
 
 This project illustrates fundamental concepts of Java networking and multi-threading alongside GUI development. It's an excellent basis for understanding client-server interactions, thread safety, and GUI handling in Java.
+
+
+### Roumanian Translation Below
+---
+
+
+
